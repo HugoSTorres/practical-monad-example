@@ -38,11 +38,11 @@ Maybe.prototype.andThen = function(func) {
 
 	if (this._value === null) {
 		//TODO: handle 'nothing' case
-		return new Maybe("This maybe object is undefinded").
+		return new Maybe("This maybe object is undefined").
 			andThen(console.log);
 	}
 
-	return new Maybe(func.call(null, this._value));
+	return func.call(null, this._value);
 };
 
 module.exports = Maybe;
